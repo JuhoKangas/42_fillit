@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//sorry wrote so little my gf not feeling good, i think she has flu :(  )
-
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -52,12 +50,17 @@ int	main(int argc, char **argv)
 {
 	int		fd;
 	int		ret;
-	char	*buff[546];
+	char	*buff[BUFF_SIZE + 1];
 
+	if (argc != 2)
+		error(1);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		error(0);
-	ret = read(fd, buff, 546);
+	ret = read(fd, buff, BUFF_SIZE);
+	if (close(fd) != 0)
+		error(0);
+	buff[ret] = '0';
 	if (ret < 0)
 		error(0);
 //	ft_validate_file(buff);
