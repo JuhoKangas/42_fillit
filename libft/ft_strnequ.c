@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 17:40:42 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/07 16:30:13 by amajer           ###   ########.fr       */
+/*   Created: 2021/11/24 17:31:06 by amajer            #+#    #+#             */
+/*   Updated: 2021/12/07 16:52:47 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv) 
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int		fd;
-	int		ret;
-	char	*buff[BUFF_SIZE + 1];
-
-	if (argc != 2)
-		error(1);
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-		error(0);
-	ret = read(fd, buff, BUFF_SIZE);
-	if (close(fd) != 0)
-		error(0);
-	buff[ret] = '0';
-	if (ret < 0)
-		error(0);
-	if (ft_validate_file(buff) == 0)
-		return (0);
-
-	return (0);	
+	return (!(ft_strncmp(s1, s2, n)));
 }

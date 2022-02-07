@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 17:40:42 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/07 16:30:13 by amajer           ###   ########.fr       */
+/*   Created: 2021/11/18 16:33:13 by amajer            #+#    #+#             */
+/*   Updated: 2021/12/03 13:24:28 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv) 
+char	*ft_strrchr(const char *s, int c)
 {
-	int		fd;
-	int		ret;
-	char	*buff[BUFF_SIZE + 1];
+	char			*p2c;
+	unsigned int	i;
 
-	if (argc != 2)
-		error(1);
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-		error(0);
-	ret = read(fd, buff, BUFF_SIZE);
-	if (close(fd) != 0)
-		error(0);
-	buff[ret] = '0';
-	if (ret < 0)
-		error(0);
-	if (ft_validate_file(buff) == 0)
-		return (0);
-
-	return (0);	
+	i = 0;
+	p2c = NULL;
+	while (s[i] != 0)
+	{
+		if (s[i] == (char)c)
+			p2c = (char *)&s[i];
+		i++;
+	}
+	if (s[i] == (char)c)
+		p2c = (char *)&s[i];
+	return (p2c);
 }

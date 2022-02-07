@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 17:40:42 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/07 16:30:13 by amajer           ###   ########.fr       */
+/*   Created: 2021/11/12 18:09:46 by amajer            #+#    #+#             */
+/*   Updated: 2021/12/13 17:07:21 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int argc, char **argv) 
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int		fd;
-	int		ret;
-	char	*buff[BUFF_SIZE + 1];
+	size_t	i;
+	size_t	j;
+	size_t	dst_len;
 
-	if (argc != 2)
-		error(1);
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-		error(0);
-	ret = read(fd, buff, BUFF_SIZE);
-	if (close(fd) != 0)
-		error(0);
-	buff[ret] = '0';
-	if (ret < 0)
-		error(0);
-	if (ft_validate_file(buff) == 0)
-		return (0);
-
-	return (0);	
+	dst_len = ft_strlen(dst);
+	i = dst_len;
+	j = 0;
+	if (dstsize < dst_len)
+		return (ft_strlen(src) + dstsize);
+	while (src[j] != '\0' && i < (dstsize - 1))
+		dst[i++] = src[j++];
+	while (src[j] != 0)
+		j++;
+	dst[i] = '\0';
+	return (j + dst_len);
 }
