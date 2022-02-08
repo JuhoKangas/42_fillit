@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkangas <jkangas@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:28:05 by jkangas           #+#    #+#             */
-/*   Updated: 2021/11/04 18:01:15 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/02/08 11:45:47 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,5 @@ size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
+
+hello\0

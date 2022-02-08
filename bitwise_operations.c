@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   bitwise_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 17:04:55 by jkangas           #+#    #+#             */
-/*   Updated: 2022/02/07 17:34:38 by amajer           ###   ########.fr       */
+/*   Created: 2022/02/08 11:58:40 by amajer            #+#    #+#             */
+/*   Updated: 2022/02/08 15:23:40 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "fillit.h"
 
-# define BUFF_SIZE 32
-# define FD_SIZE 5000
+unsigned short	set_bit(unsigned short tet, int posix)
+{
+	tet = ((1 << posix) | tet);
+	return (tet);
+}
 
-int	get_next_line(const int fd, char **line);
 
-#endif
+/*
+	need structure for this
+*/
+unsigned short	shift_tet_top_left(unsigned short tet)
+{
+	  
+}

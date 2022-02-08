@@ -6,29 +6,47 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:27:15 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/07 16:29:13 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/08 15:57:29 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_validate_file(char *buff)
+#include "fillit.h"
+
+void error(int i)
+{
+	if (i == 1)
+	{
+		ft_putstr("usage:\n");
+	}
+	else if (i == 0)
+	{
+		ft_putstr("error\n");
+	}
+	exit(1);
+}
+
+void 	ft_validate_file(char *buff)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while(i < BUFF_SIZE)
+	while(buff[i] != 0)
 	{
-		j = 0;
-		while ((buff[j] == '#' || buff[j] == '\n' || buff[j] == '.') && j <= 20)
+		if ((i + 1) % 21 == 0)
 		{
-			j++;
-			i++;
+			if (buff[i] != '\n')
+				error(0);
 		}
-		if (buff[i] != '\n')
+		else if ((i + 1) % 5 == 0)
 		{
-			 error(0);
-			return (0);
+			if (buff[i] != '\n')
+				error(0);
 		}
+		else
+		{
+			if (buff[i] != '.' || buff[i] != '#')
+				error(0);
+		}
+		i++;
 	}
-	return (0);
 }
