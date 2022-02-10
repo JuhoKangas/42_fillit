@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:14:53 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/10 13:36:10 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/10 15:32:10 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,19 @@ void bin(unsigned long long n)
 			printf("1 ");
 		else 
 			printf("0 ");
-		if (i % 4 == 0 && i != 0) // change modulo to 8 for 8x8 map or 16 for 16x4 map 
+		if (i % 16 == 0 && i != 0) // change modulo to 8 for 8x8 map or 16 for 16x4 map 
 			printf("\n");
 	}
 }
 
-unsigned long long set_bit(unsigned long long tet, int posix)
+unsigned long long set_bit(unsigned long long tet, int index)
 {
-	tet = (1ULL << posix) | tet;
+	int	posix;
+	int	posiy;
+	
+	posix = index / 5;
+	posiy = index % 5;
+	tet = (1L << (16 * (posiy + 1) - posix - 1)) | tet;
 	return (tet);
 }
 
