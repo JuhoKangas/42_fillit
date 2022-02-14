@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:40:42 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/11 17:25:33 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/14 16:57:51 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,6 @@ void	ft_measure_piece(char *str, int *positions)
 	ft_putnbr(tetris_height);
 	ft_putchar('\n');
 }
-
-/*
-void	ft_print_block(int fd)
-{
-	char *line;
-
-
-	while (get_next_line(fd, &line) == 1)
-	{	
-		ft_putendl(line);
-		ft_putstr(line);
-		ft_strdel(&line);
-	}
-}
-*/
 
 int	main(int argc, char **argv)
 {
