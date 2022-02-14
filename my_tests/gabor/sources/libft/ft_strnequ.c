@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ghorvath <ghorvath@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/11 17:06:08 by amajer           ###   ########.fr       */
+/*   Created: 2021/11/10 11:32:24 by ghorvath          #+#    #+#             */
+/*   Updated: 2021/11/16 10:45:46 by ghorvath         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include <fcntl.h>
-
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "get_next_line.h"
-#include "libft/libft.h"
-
-void	ft_validate_file(char *buff, int pieces);
-void	error(int i);
-
-#endif
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
+{
+	if (s1 == 0 || s2 == 0)
+		return (0);
+	if (ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	else
+		return (0);
+}

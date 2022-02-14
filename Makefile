@@ -6,7 +6,7 @@
 #    By: amajer <amajer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/07 17:38:09 by amajer           ###   ########.fr        #
+#    Updated: 2022/02/11 14:51:17 by amajer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIB = -L ./libft -lft
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(CFILES)
 	make -C ./libft re
 	gcc $(FLAGS) $(INCLUDES) $(CFILES) $(LIB) -o $(NAME)
 

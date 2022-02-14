@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:40:42 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/10 16:06:25 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/11 17:25:33 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,19 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		error(1);
 	fd = open(argv[1], O_RDONLY);
-	ret = read(fd, buff, 20);
-	if (fd < 0 || ret <= 0)
-		error(0);
-	pieces = 
-	buff[ret] = '\0';
+	ret = 1;
+	pieces = 0;
+	while(ret > 0)
+	{
+		ret = read(fd, buff, 20);
+		if (fd < 0 || ret <= 0)
+			error(0);
+		buff[ret] = '\0';
+		ft_validate_file(buff, pieces);
+		ft_measure_piece(buff, positions);
+		pieces = pieces + 1;
+	}
 	if (close(fd) != 0)
 		error(1);
-	ft_measure_piece(buff, positions);
 	return(0);
 }

@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ghorvath <ghorvath@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/11 17:06:08 by amajer           ###   ########.fr       */
+/*   Created: 2021/11/18 10:33:29 by ghorvath          #+#    #+#             */
+/*   Updated: 2021/11/18 12:35:43 by ghorvath         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include <fcntl.h>
-
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "get_next_line.h"
-#include "libft/libft.h"
-
-void	ft_validate_file(char *buff, int pieces);
-void	error(int i);
-
-#endif
+int	ft_isspace(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r' || c == ' ')
+		return (1);
+	return (0);
+}

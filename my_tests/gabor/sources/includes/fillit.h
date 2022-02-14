@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wdonnell <wdonnell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/11 17:06:08 by amajer           ###   ########.fr       */
+/*   Created: 2021/12/25 14:28:21 by willdonnell       #+#    #+#             */
+/*   Updated: 2022/01/14 13:12:23 by wdonnell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,24 @@
 # define FILLIT_H
 
 # include <fcntl.h>
+# include "libft.h"
+# include <stdint.h>
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+# define BUFF_SIZE 21
 
-#include "get_next_line.h"
-#include "libft/libft.h"
+typedef struct s_tetri
+{
+	uint64_t		code;
+	int				pos;
+	char			letter;
+	int				left;
+	int				width;
+	int				height;
+}				t_tetri;
 
-void	ft_validate_file(char *buff, int pieces);
-void	error(int i);
+int		reader(int fd, t_tetri *tetri, int *count);
+void	add_tetri(t_tetri *tetri, char *buf, int *count);
+int		solve(t_tetri *tetri, int count, uint16_t *map);
+void	print_board(t_tetri *tetri, int size);
 
 #endif

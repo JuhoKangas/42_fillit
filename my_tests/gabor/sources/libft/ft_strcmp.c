@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ghorvath <ghorvath@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/11 17:06:08 by amajer           ###   ########.fr       */
+/*   Created: 2021/11/02 10:47:49 by ghorvath          #+#    #+#             */
+/*   Updated: 2021/11/16 11:01:58 by ghorvath         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include <fcntl.h>
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "get_next_line.h"
-#include "libft/libft.h"
-
-void	ft_validate_file(char *buff, int pieces);
-void	error(int i);
-
-#endif
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && s1[i] == s2[i])
+		i++;
+	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+}

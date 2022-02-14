@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_number_lenght.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ghorvath <ghorvath@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/11 17:06:08 by amajer           ###   ########.fr       */
+/*   Created: 2021/11/24 12:45:32 by ghorvath          #+#    #+#             */
+/*   Updated: 2021/11/24 12:45:37 by ghorvath         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include <fcntl.h>
+int	ft_number_lenght(long nb)
+{
+	int	counter;
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "get_next_line.h"
-#include "libft/libft.h"
-
-void	ft_validate_file(char *buff, int pieces);
-void	error(int i);
-
-#endif
+	counter = 0;
+	if (nb < 0)
+	{
+		nb = nb * -1;
+		counter++;
+	}
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		counter++;
+	}
+	return (counter);
+}

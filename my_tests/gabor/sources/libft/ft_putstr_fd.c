@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ghorvath <ghorvath@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/11 17:06:08 by amajer           ###   ########.fr       */
+/*   Created: 2021/11/10 14:46:46 by ghorvath          #+#    #+#             */
+/*   Updated: 2021/11/16 11:14:50 by ghorvath         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include <fcntl.h>
+void	ft_putstr_fd(char const *s, int fd)
+{
+	char	*s_s;
+	int		i;
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "get_next_line.h"
-#include "libft/libft.h"
-
-void	ft_validate_file(char *buff, int pieces);
-void	error(int i);
-
-#endif
+	s_s = (char *)s;
+	if (s != 0)
+	{
+		i = 0;
+		while (s_s[i] != '\0')
+		{
+			write(fd, &s_s[i], 1);
+			i++;
+		}
+	}
+}
