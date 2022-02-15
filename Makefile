@@ -3,33 +3,38 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amajer <amajer@student.42.fr>              +#+  +:+       +#+         #
+#    By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/11 14:51:17 by amajer           ###   ########.fr        #
+#    Updated: 2022/02/15 18:22:14 by jkangas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fillit
-CFILES = main.c error.c get_next_line.c
-FLAGS = -Wall -Wextra -Werror
-INCLUDES = -I ./libft/
-LIB = -L ./libft -lft
+NAME := fillit
+CFILES := main.c error.c get_next_line.c
+CC := gcc
+CFLAGS := -Wall -Wextra -Werror
+OBJ := main.o error.o get_next_line.o
+RM := /bin/rm -f
+INCLUDES := -I./libft
+HEADER = $(NAME).h
+LIBFT := -L./libft -lft
 
 all: $(NAME)
 
-$(NAME): $(CFILES)
-	make -C ./libft re
-	gcc $(FLAGS) $(INCLUDES) $(CFILES) $(LIB) -o $(NAME)
+$(NAME): $(CFILES) $(HEADER)
+	$(MAKE) -C libft re
+	$(CC) $(CFLAGS) $(CFILES) $(INCLUDES) $(LIBFT) -o $@
 
 clean:
-	make -C ./libft clean
+	$(MAKE) -C libft clean
+	$(RM) $(OBJ)
 
-fclean:
-	make -C ./libft fclean
-	rm -f $(NAME)
+fclean: clean
+	$(MAKE) -C libft fclean
+	$(RM) $(NAME)
 
-re:
-	make -C ./libft re
-	fclean
-	all
+re: fclean all
+	$(MAKE) -C libft re
+
+.PHONY: all clean fclean re
