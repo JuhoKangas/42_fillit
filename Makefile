@@ -6,7 +6,7 @@
 #    By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/16 14:26:45 by jkangas          ###   ########.fr        #
+#    Updated: 2022/02/16 14:28:44 by jkangas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFLAGS := -Wall -Wextra -Werror
 
 # Libraries
 LIBFT := -L./libft -lft
-INCLUDES := -I./libft
+INCLUDES := -I./libft -I$(INC_DIR)
 
 RM := /bin/rm -f
 RMDIR := /bin/rm -rf
