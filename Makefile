@@ -6,7 +6,7 @@
 #    By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/16 14:28:44 by jkangas          ###   ########.fr        #
+#    Updated: 2022/02/16 14:32:21 by jkangas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ INCLUDES := -I./libft -I$(INC_DIR)
 
 RM := /bin/rm -f
 RMDIR := /bin/rm -rf
-HEADER := $(NAME).h
 
 .PHONY: all clean fclean re
 
