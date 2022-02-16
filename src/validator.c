@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:48:32 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/15 19:01:47 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/16 14:26:12 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 int ft_validate_shape(char *piece, int i)
 {

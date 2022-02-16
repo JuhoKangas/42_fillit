@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   measure.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:01:56 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/15 19:03:14 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/16 14:25:48 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 /*
 ** Utility function to get min-max values for get_piece.
 ** pos is a 4 dimensional array encoded as: xMin 0, xMax 1, yMin 2, yMax 3

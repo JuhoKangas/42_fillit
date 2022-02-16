@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bitwise_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:58:40 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/08 15:23:40 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/16 14:24:25 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 unsigned short	set_bit(unsigned short tet, int posix)
 {
