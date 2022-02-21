@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:14:53 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/17 16:42:55 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/21 18:59:31 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@ unsigned long long shift_tetrimino(unsigned long long tetrimino)
 */
 void bin(unsigned long long n)
 {
-	int i = 64;
+	int i = 0;
 
-	while (i--)
+	while (i < 64)
 	{
 		if (n  & (1ULL << i))
 			printf("1 ");
 		else 
 			printf("0 ");
-		if (i % 16 == 0 && i != 0) // change modulo to 8 for 8x8 map or 16 for 16x4 map 
+		if (i % 16 == 0 && i != 0)
 			printf("\n");
+			i++;
 	}
 }
 

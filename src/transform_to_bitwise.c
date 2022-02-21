@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:12:35 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/21 18:11:39 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/21 18:34:24 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	ft_string_to_array(char *str, int i, int j, int z)
 			z++;
 		}
 	}
+	printf("lalalalalal\n");
 	array[4][0] = '\0';
-	ft_array_to_integer((char **)array);
+	printf("buhubuhu\n");
+	ft_array_to_integer(array);
 }
