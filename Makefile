@@ -6,29 +6,43 @@
 #    By: amajer <amajer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/15 18:36:31 by amajer           ###   ########.fr        #
+#    Updated: 2022/02/21 15:40:15 by amajer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# Executable name
 NAME := fillit
-CFILES := main.c error.c get_next_line.c reader.c
+
+# Directories
+SRC_DIR := ./src
+INC_DIR := ./includes
+
+# src / obj files
+SRC := main.c error.c measure.c reader.c validator.c
+SRCS := $(addprefix $(SRC_DIR)/,$(SRC))
+
+# Compiler and flags
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror
-OBJ := main.o error.o get_next_line.o reader.o
-RM := /bin/rm -f
-INCLUDES := -I./libft
-HEADER = $(NAME).h
+
+# Libraries
 LIBFT := -L./libft -lft
+INCLUDES := -I./libft -I$(INC_DIR)
+
+RM := /bin/rm -f
+RMDIR := /bin/rm -rf
+
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(CFILES) $(HEADER)
-	$(MAKE) -C libft re
-	$(CC) $(CFLAGS) $(CFILES) $(INCLUDES) $(LIBFT) -o $@
+$(NAME): $(SRCS)
+	$(MAKE) -C libft
+	$(CC) $(CFLAGS) $(SRCS) $(INCLUDES) $(LIBFT) -o $@
 
 clean:
-	$(MAKE) -C libft clean
-	$(RM) $(OBJ)
+	@$(MAKE) -C libft clean
+	@$(RM) $(OBJ)
 
 fclean: clean
 	$(MAKE) -C libft fclean
@@ -36,5 +50,3 @@ fclean: clean
 
 re: fclean all
 	$(MAKE) -C libft re
-
-.PHONY: all clean fclean re

@@ -6,31 +6,11 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:14:53 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/11 14:52:36 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/17 16:42:55 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-# define I_0 0b1111000000000000UL
-# define I_1 0b1000100010001000UL
-# define J_0 0b1110001000000000UL
-# define J_1 0b0100010011000000UL
-# define J_2 0b1000111000000000UL
-# define J_3 0b1100100010000000UL
-# define L_0 0b1110100000000000UL
-# define L_1 0b1100010001000000UL
-# define L_2 0b0010111000000000UL
-# define L_3 0b1000100011000000UL
-# define O_0 0b1100110000000000UL
-# define S_0 0b0110110000000000UL
-# define S_1 0b1000110001000000UL
-# define T_0 0b1110010000000000UL
-# define T_1 0b0100110001000000UL
-# define T_2 0b0100111000000000UL
-# define T_3 0b1000110010000000UL
-# define Z_0 0b1100011000000000UL
-# define Z_1 0b0100110010000000UL
 
 
 /*
@@ -164,3 +144,15 @@ int	main()
 
 	return 0;
 }
+// while(tet[i] != '#')
+// {
+// 	i++;
+// 	if (i < 5)
+// 		line = 0;
+// 	if (i > 4 && i < 10)
+// 		line = 1;
+// 	if (i > 9 && i < 15)
+// 		line = 2;
+// 	if (i > 14)
+// 		line = 3;
+// }
