@@ -6,7 +6,7 @@
 #    By: amajer <amajer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/21 15:40:15 by amajer           ###   ########.fr        #
+#    Updated: 2022/02/21 16:56:42 by amajer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC_DIR := ./src
 INC_DIR := ./includes
 
 # src / obj files
-SRC := main.c error.c measure.c reader.c validator.c
+SRC := main.c error.c measure.c reader.c validator.c transform_to_bitwise.c
 SRCS := $(addprefix $(SRC_DIR)/,$(SRC))
 
 # Compiler and flags

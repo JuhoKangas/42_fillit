@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   measure.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:01:56 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/16 14:25:48 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/02/21 17:37:46 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ void	ft_measure_piece(char *str, int *positions, int i)
 	}
 	tetris_width = positions[1] - positions[0] + 1;
 	tetris_height = positions[3] - positions[2] + 1;
+	printf("this tetrimino width and height are: %i, %i.\n", tetris_width, tetris_height);
 }
