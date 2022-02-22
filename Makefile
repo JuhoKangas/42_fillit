@@ -6,7 +6,7 @@
 #    By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/16 14:32:21 by jkangas          ###   ########.fr        #
+#    Updated: 2022/02/22 14:00:43 by jkangas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ NAME := fillit
 # Directories
 SRC_DIR := ./src
 INC_DIR := ./includes
+OBJ_DIR := ./obj
 
 # src / obj files
 SRC := main.c error.c measure.c reader.c validator.c
 SRCS := $(addprefix $(SRC_DIR)/,$(SRC))
+OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 # Compiler and flags
 CC := gcc
@@ -27,22 +29,29 @@ CFLAGS := -Wall -Wextra -Werror
 
 # Libraries
 LIBFT := -L./libft -lft
-INCLUDES := -I./libft -I$(INC_DIR)
+INCLUDES := -I./libft
+INCLUDES += -I$(INC_DIR)
 
 RM := /bin/rm -f
 RMDIR := /bin/rm -rf
 
 .PHONY: all clean fclean re
 
-all: $(NAME)
-
-$(NAME): $(SRCS)
+all:
+	mkdir -p $(OBJ_DIR)
 	$(MAKE) -C libft
-	$(CC) $(CFLAGS) $(SRCS) $(INCLUDES) $(LIBFT) -o $@
+	$(MAKE) $(NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(INCLUDES) $(LIBFT) -o $@
 
 clean:
-	@$(MAKE) -C libft clean
-	@$(RM) $(OBJ)
+	$(MAKE) -C libft clean
+	$(RM) $(OBJ)
+	$(RMDIR) $(OBJ_DIR)
 
 fclean: clean
 	$(MAKE) -C libft fclean
