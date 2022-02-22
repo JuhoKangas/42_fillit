@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:12:35 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/21 18:34:24 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/22 15:40:19 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,108 +14,106 @@
 
 void bin(unsigned long long n)
 {
-	int i = 64;
-
-	while (i--)
+	int i = 15;
+	while (i > -1)
 	{
 		if (n  & (1ULL << i))
 			printf("1 ");
 		else 
 			printf("0 ");
-		if (i % 16 == 0 && i != 0) // change modulo to 8 for 8x8 map or 16 for 16x4 map 
-			printf("\n");
+		i--;
 	}
 	printf("\n");
+					//second line
+	i = 31;
+	while (i > 15)
+	{
+		if (n  & (1ULL << i))
+			printf("1 ");
+		else 
+			printf("0 ");
+			i--;
+	}
+	printf("\n");
+					//third line
+	i = 47;
+	while (i > 31)
+	{
+		if (n  & (1ULL << i))
+			printf("1 ");
+		else 
+			printf("0 ");
+		i--;
+	}
+	printf("\n");
+					//fourth line
+	i = 63;
+	while (i > 47)
+	{
+		if (n  & (1ULL << i))
+			printf("1 ");
+		else 
+			printf("0 ");
+		i--;
+	}
+	printf("\n");
+
+}
+
+void	left_shift(unsigned long long tetrimino)
+{
+	int	i;
+
+	i = 3;
+	printf("\nbefore left shift\n");
+	bin(tetrimino);
+	printf("\n");
+	while (i-- > 0)
+		if (!(tetrimino & 1ULL << 15) && !(tetrimino & 1ULL << 31) && \
+			 !(tetrimino & 1ULL << 47) && !(tetrimino & 1ULL << 63))
+			tetrimino = tetrimino << 1;
+	bin(tetrimino);
+}
+
+void	up_shift(unsigned long long tetrimino)
+{
+	int	i;
+
+	i = 3;
+	printf("\n");
+	while (i-- > 0)
+		if (!(tetrimino & 1ULL << 15) && !(tetrimino & 1ULL << 14) && \
+			 !(tetrimino & 1ULL << 13) && !(tetrimino & 1ULL << 12))
+			tetrimino = tetrimino >> 16;
+	left_shift(tetrimino);
 }
 
 unsigned long long set_bit(unsigned long long tet, int index)
 {
-	// int	posix;
-	// int	posiy;
+	int	posix;
+	int	posiy;
 	
-	// posix = index / 5;
-	// posiy = index % 5;
-	tet = (1L << index) | tet;
+	posix = index % 5;
+	posiy = index / 5;
+	printf("\nx is %i, y is %i.\n", posix, posiy);
+	tet = (1L << (16 * (posiy + 1) - 1 - posix)) | tet;
 	return (tet);
 }
 
-void	ft_array_to_integer(char **tetrimino_array)
+void	ft_string_to_ull(char *tet_str)
 {
+	unsigned long long	tetrimino;
 	int					i;
-	int					j;
-	unsigned long long	tet;
 
+	tetrimino = 0;
 	i = 0;
-	j = 0;
-	tet = 0;
-	while (tetrimino_array[j][0] != '\0')
+	while(tet_str[i] != 0)
 	{
-		if (tetrimino_array[j][0] == '#')
-			tet = set_bit(tet, 4);
-		if (tetrimino_array[j][1] == '#')
-			tet = set_bit(tet, 3);
-		if (tetrimino_array[j][2] == '#')
-			tet = set_bit(tet, 2);
-		if (tetrimino_array[j][3] == '#')
-			tet = set_bit(tet, 1);
-		if (j < 3)
-			tet = tet << 16;
-		j++;
-	}
-	bin(tet);
-}
-
-char	**allocate_array()
-{
-	char	**array;
-	int		i;
-
-	i = 0;
-	array = (char **)malloc(sizeof(char *) * 5);
-	if (array == NULL)
-		error(0);
-	while (i < 4)
-	{
-		array[i] = (char *)malloc(sizeof(char) * 5);
-		if (array[i] == NULL)
-		{
-			while (i > -1)
-			{
-				ft_strdel(&array[i]);
-				i--;
-			}
-			free(array);
-			array = NULL;
-			error(0);
-		}
+		if (tet_str[i] == '\n')
+			i++;
+		if (tet_str[i] == '#')
+			tetrimino = set_bit(tetrimino, i);
 		i++;
 	}
-	return (array);
-}
-
-void	ft_string_to_array(char *str, int i, int j, int z)
-{
-	char	**array;
-
-	array = allocate_array();
-	while (str[i] != '\0')
-	{
-		if (str[i] == '\n')
-		{
-			array[j][z] = '\0';
-			j++;
-			z = 0;
-			i++;
-		}
-		else
-		{
-			array[j][z] = str[i];
-			i++;
-			z++;
-		}
-	}
-	printf("lalalalalal\n");
-	array[4][0] = '\0';
-	printf("buhubuhu\n");
-	ft_array_to_integer(array);
+	up_shift(tetrimino);
 }

@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/21 17:31:41 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/22 15:21:13 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ int		ft_validate_shape(char *piece, int i);
 
 void	ft_measure_piece(char *str, int *positions, int i);
 
-void	ft_string_to_array(char *str, int i, int j, int z);
-char	**allocate_array();
-void	ft_array_to_integer(char **tetrimino_array);
+void	ft_string_to_ull(char *tet_str);
+void	up_shift(unsigned long long tetrimino);
+
+// void	ft_string_to_array(char *str, int i, int j, int z);
+// char	**allocate_array();
+// void	ft_array_to_integer(char **tetrimino_array);
 unsigned long long set_bit(unsigned long long tet, int index);
 
 

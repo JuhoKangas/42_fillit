@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:43:22 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/16 14:26:03 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/02/22 15:38:14 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_reader_function(int fd, int ret)
 	while (ret > 0)
 	{
 		ret = read(fd, buff, 21);
-		printf("ret is :%i\n", ret);
+		printf("\n____________________________\nret is :%i\n", ret);
 		if (ret > 0)
 		{
 			if ((fd < 0 || ret < 0) || (pieces == 0 && ret == 0))
