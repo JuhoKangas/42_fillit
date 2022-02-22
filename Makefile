@@ -6,7 +6,7 @@
 #    By: amajer <amajer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/22 15:44:05 by jkangas          ###   ########.fr        #
+#    Updated: 2022/02/22 16:59:12 by amajer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ INC_DIR := ./includes
 OBJ_DIR := ./obj
 
 # src / obj files
-SRC := main.c error.c measure.c reader.c validator.c transform_to_bitwise.c
+SRC := main.c error.c measure.c reader.c validator.c transform_to_bitwise.c /
+		struct_builder.c
 SRCS := $(addprefix $(SRC_DIR)/,$(SRC))
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

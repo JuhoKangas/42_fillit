@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:48:32 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/22 14:50:01 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/22 17:37:47 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,5 @@ void	ft_validate_file(char *buff, int pieces)
 		printf("error at validate piece.\n");
 		error(0);
 	}
-	ft_measure_piece(buff, positions, 0);
-	ft_string_to_ull(buff);
+	ft_measure_piece(buff, positions, 0, pieces);
 }

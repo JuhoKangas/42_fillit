@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:12:35 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/22 15:40:19 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/22 17:39:25 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void bin(unsigned long long n)
 
 }
 
-void	left_shift(unsigned long long tetrimino)
+unsigned long long	left_shift(unsigned long long tetrimino)
 {
 	int	i;
 
@@ -73,9 +73,10 @@ void	left_shift(unsigned long long tetrimino)
 			 !(tetrimino & 1ULL << 47) && !(tetrimino & 1ULL << 63))
 			tetrimino = tetrimino << 1;
 	bin(tetrimino);
+	return (tetrimino);
 }
 
-void	up_shift(unsigned long long tetrimino)
+unsigned long long	up_shift(unsigned long long tetrimino)
 {
 	int	i;
 
@@ -85,7 +86,7 @@ void	up_shift(unsigned long long tetrimino)
 		if (!(tetrimino & 1ULL << 15) && !(tetrimino & 1ULL << 14) && \
 			 !(tetrimino & 1ULL << 13) && !(tetrimino & 1ULL << 12))
 			tetrimino = tetrimino >> 16;
-	left_shift(tetrimino);
+	return (left_shift(tetrimino));
 }
 
 unsigned long long set_bit(unsigned long long tet, int index)
@@ -100,7 +101,7 @@ unsigned long long set_bit(unsigned long long tet, int index)
 	return (tet);
 }
 
-void	ft_string_to_ull(char *tet_str)
+void	ft_string_to_ull(char *tet_str, int t_width, int t_height, int piece_number)
 {
 	unsigned long long	tetrimino;
 	int					i;
@@ -115,5 +116,8 @@ void	ft_string_to_ull(char *tet_str)
 			tetrimino = set_bit(tetrimino, i);
 		i++;
 	}
-	up_shift(tetrimino);
+	tetrimino = up_shift(tetrimino);
+	t_width = 1;
+	t_height = 1;
+	ft_build_structure(tetrimino, t_width, t_height, piece_number);
 }
