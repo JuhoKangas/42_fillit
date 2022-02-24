@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/22 17:59:15 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/24 15:56:13 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_etrimino
 	char				id;
 }				t_etrimino;
 
-void				ft_reader_function(int fd, int ret);
+void				ft_reader_function(int fd);
 
 void				ft_validate_file(char *buff, int pieces);
 int					ft_validate_shape(char *piece, int i);

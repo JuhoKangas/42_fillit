@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:12:35 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/22 17:39:25 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/24 16:31:34 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,5 @@ void	ft_string_to_ull(char *tet_str, int t_width, int t_height, int piece_number
 	tetrimino = up_shift(tetrimino);
 	t_width = 1;
 	t_height = 1;
-	ft_build_structure(tetrimino, t_width, t_height, piece_number);
+	struct_builder(tetrimino, t_width, t_height, piece_number);
 }
