@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:27:15 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/16 14:25:22 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/02/25 18:01:46 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void error(int i)
 	// 	ft_putstr("usage:\n");
 	// }
 	else if (i == 0)
+	{
+		ft_putstr("error\n");
 		exit(1);
-	// {
-	// 	ft_putstr("error\n");
-	// }
+	}
 
 }

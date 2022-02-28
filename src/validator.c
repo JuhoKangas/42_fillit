@@ -6,81 +6,64 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:48:32 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/22 17:37:47 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/25 16:56:04 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int ft_validate_shape(char *piece, int i)
+int ft_validate_shape(char *piece_index)
 {
 	int	contacts;
+	int	i;
 
+	i = 0;
 	contacts = 0;
-	while(piece[i] != 0)
+	while(piece_index[i] != '\0')
 	{
-		if (piece[i] == '#')
+		if (piece_index[i] == '#')
 		{
 			if (i > 0)
-				if (piece[i - 1] == '#')
+				if (piece_index[i - 1] == '#')
 					contacts++;
 			if (i < 19)
-				if (piece[i + 1] == '#')
+				if (piece_index[i + 1] == '#')
 					contacts++;
 			if (i > 4)
-				if (piece[i - 5] == '#')
+				if (piece_index[i - 5] == '#')
 					contacts++;
 			if (i < 15)
-				if (piece[i + 5] == '#')
+				if (piece_index[i + 5] == '#')
 					contacts++;
 		}
 		i++;
 	}
-	printf("this tetrimino has %i contact points.\n", contacts);
-	return (contacts == 6 || contacts == 8);
+	// printf("this tetrimino has %i contact points.\n", contacts);
+	// return (contacts == 6 || contacts == 8);
+	return (contacts);
 }
 
-void	ft_validate_file(char *buff, int pieces)
+int	ft_validate_file(char *buff, int piece_index)
 {
 	int	i;
 	int	blocks;
-	int	positions[5];
 
 	i = 0;
 	blocks = 0;
-	printf("piece number : %i\n", pieces);
-	printf("tetrimino:\n\n%s", buff);
-	if ((pieces > 26) || (buff[20] != '\n' && buff[20] != '\0'))
-	{
-		printf("too many pieces or invalid file. validator.c line 27\n");
+	if ((piece_index > 26) || (buff[20] != '\n' && buff[20] != '\0'))
 		error(0);
-	}
 	while(i < 20)
 	{
 		if ((i + 1) % 5 == 0 && buff[i] != '\n' && i > 1)
-		{
-			printf("newline error at end of line, char: '%c', at index: %i", buff[i], i);
-			error(0);
-		}
+			return(1);
 		if ((i + 1) % 5 != 0)
-		{
 			if (buff[i] != '.' && buff[i] != '#')
-			{
-				printf("|%c| at the index of %d", buff[i], i);
-				error(0);
-			}
-		}
+				return(1);
 		if (buff[i] == '#' && ++blocks > 4)
-		{
-			printf("block number check\n");
-			error(0);
-		}
+			return(1);
 		i++;
 	}
-	if (!ft_validate_shape(buff, 0))
-	{
-		printf("error at validate piece.\n");
-		error(0);
-	}
-	ft_measure_piece(buff, positions, 0, pieces);
+	if (ft_validate_shape(buff) != 6 && ft_validate_shape(buff) != 8)
+		return(1);
+	return (0);
 }

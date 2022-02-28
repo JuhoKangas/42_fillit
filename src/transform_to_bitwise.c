@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:12:35 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/24 16:31:34 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/25 15:09:08 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ unsigned long long	left_shift(unsigned long long tetrimino)
 	int	i;
 
 	i = 3;
-	printf("\nbefore left shift\n");
-	bin(tetrimino);
-	printf("\n");
+	//printf("\nbefore left shift\n");
+	//bin(tetrimino);
+//	printf("\n");
 	while (i-- > 0)
 		if (!(tetrimino & 1ULL << 15) && !(tetrimino & 1ULL << 31) && \
 			 !(tetrimino & 1ULL << 47) && !(tetrimino & 1ULL << 63))
 			tetrimino = tetrimino << 1;
-	bin(tetrimino);
+	//bin(tetrimino);
 	return (tetrimino);
 }
 
@@ -81,7 +81,7 @@ unsigned long long	up_shift(unsigned long long tetrimino)
 	int	i;
 
 	i = 3;
-	printf("\n");
+//	printf("\n");
 	while (i-- > 0)
 		if (!(tetrimino & 1ULL << 15) && !(tetrimino & 1ULL << 14) && \
 			 !(tetrimino & 1ULL << 13) && !(tetrimino & 1ULL << 12))
@@ -96,12 +96,12 @@ unsigned long long set_bit(unsigned long long tet, int index)
 	
 	posix = index % 5;
 	posiy = index / 5;
-	printf("\nx is %i, y is %i.\n", posix, posiy);
+	//printf("\nx is %i, y is %i.\n", posix, posiy);
 	tet = (1L << (16 * (posiy + 1) - 1 - posix)) | tet;
 	return (tet);
 }
 
-void	ft_string_to_ull(char *tet_str, int t_width, int t_height, int piece_number)
+unsigned long long	ft_string_to_ull(char *tet_str)
 {
 	unsigned long long	tetrimino;
 	int					i;
@@ -117,7 +117,5 @@ void	ft_string_to_ull(char *tet_str, int t_width, int t_height, int piece_number
 		i++;
 	}
 	tetrimino = up_shift(tetrimino);
-	t_width = 1;
-	t_height = 1;
-	struct_builder(tetrimino, t_width, t_height, piece_number);
+	return (tetrimino);
 }

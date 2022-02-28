@@ -6,7 +6,7 @@
 /*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/24 15:56:13 by amajer           ###   ########.fr       */
+/*   Updated: 2022/02/25 17:27:46 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ typedef struct	s_etrimino
 	char				id;
 }				t_etrimino;
 
-void				ft_reader_function(int fd);
+int					ft_reader_function(int fd, t_etrimino *tetris);
 
-void				ft_validate_file(char *buff, int pieces);
-int					ft_validate_shape(char *piece, int i);
+t_etrimino 			build_piece(int piece_index, char *buff);
 
-void				ft_measure_piece(char *str, int *positions, int i, int piece_number);
+int					ft_validate_file(char *buff, int piece_index);
+int					ft_validate_shape(char *piece_index);
 
-void				ft_string_to_ull(char *tet_str, int t_width, int t_height, int piece_number);
+int					ft_measure_height(char *str);
+int					ft_measure_width(char *str);
+
+unsigned long long	ft_string_to_ull(char *tet_str);
 unsigned long long	up_shift(unsigned long long tetrimino);
 unsigned long long	left_shift(uint64_t tetrimino);
 
-void	struct_builder(unsigned long long tet, int t_width, int t_height, int piece_number);
+unsigned long long 	set_bit(unsigned long long tet, int index);
 
-unsigned long long set_bit(unsigned long long tet, int index);
-
-
-void bin(unsigned long long n);
+void 	bin(unsigned long long n);
 void	error(int i);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: amajer <amajer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/02/24 16:33:39 by amajer           ###   ########.fr        #
+#    Updated: 2022/02/25 17:39:31 by amajer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS := $(addprefix $(SRC_DIR)/,$(SRC))
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 # Compiler and flags
-CC := gcc
+CC := gcc -g
 CFLAGS := -Wall -Wextra -Werror
 
 # Libraries
