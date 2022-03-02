@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/25 17:27:46 by amajer           ###   ########.fr       */
+/*   Updated: 2022/03/02 15:37:48 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@
 
 #include "../libft/libft.h"
 
+#define MAX_TETRI 26
+
 typedef struct	s_etrimino
 {
 	unsigned long long	value;
 	int					width;
 	int					height;
 	char				id;
+	uint8_t				x;
+	uint8_t				y;
 }				t_etrimino;
 
 int					ft_reader_function(int fd, t_etrimino *tetris);
@@ -38,6 +42,8 @@ int					ft_validate_shape(char *piece_index);
 
 int					ft_measure_height(char *str);
 int					ft_measure_width(char *str);
+
+int	solve_map(t_etrimino *tetris, const int pieces);
 
 unsigned long long	ft_string_to_ull(char *tet_str);
 unsigned long long	up_shift(unsigned long long tetrimino);

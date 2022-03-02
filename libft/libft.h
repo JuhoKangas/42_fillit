@@ -6,7 +6,7 @@
 /*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:56:10 by jkangas           #+#    #+#             */
-/*   Updated: 2021/12/08 19:47:44 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/02 15:43:20 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ int		ft_isupper(int c);
 int		ft_islower(int c);
 int		ft_abs(int n);
 int		ft_wordcount(const char *str, char c);
+int		ft_sqrt(int num);
 
 #endif

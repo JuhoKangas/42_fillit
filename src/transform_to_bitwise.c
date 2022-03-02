@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transform_to_bitwise.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:12:35 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/25 15:09:08 by amajer           ###   ########.fr       */
+/*   Updated: 2022/03/02 15:40:31 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ unsigned long long set_bit(unsigned long long tet, int index)
 	
 	posix = index % 5;
 	posiy = index / 5;
-	//printf("\nx is %i, y is %i.\n", posix, posiy);
 	tet = (1L << (16 * (posiy + 1) - 1 - posix)) | tet;
 	return (tet);
 }
