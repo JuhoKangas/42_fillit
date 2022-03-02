@@ -6,7 +6,7 @@
 #    By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 13:55:41 by jkangas           #+#    #+#              #
-#    Updated: 2021/12/10 19:36:42 by jkangas          ###   ########.fr        #
+#    Updated: 2022/03/02 13:26:41 by jkangas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ MATH_SRC = ft_atoi \
 		ft_isspace \
 		ft_isupper \
 		ft_islower \
+		ft_sqrt \
 
 SRC = $(STR_SRC) \
 		$(MEM_SRC) \
