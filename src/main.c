@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:40:42 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/25 18:02:01 by amajer           ###   ########.fr       */
+/*   Updated: 2022/03/02 13:02:35 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	printf("number of pieces is: %i.\n", pieces);
 	while (i < pieces)
 	{
-		printf("\npiece number: %i\n", i);
+		printf("\n\npiece number: %i\n", i);
 		printf("\nID: %c\n", tetris[i].id);
 		bin(tetris[i].value);
 		printf("\npiece width: %i", tetris[i].width);
