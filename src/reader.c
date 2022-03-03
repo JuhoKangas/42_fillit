@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:43:22 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/25 18:00:27 by amajer           ###   ########.fr       */
+/*   Updated: 2022/03/03 13:49:46 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int	ft_reader_function(int fd, t_etrimino *tetris)
 	{
 		buff[ret] = '\0';
 		if (ft_validate_file(buff, piece_index) == 1)
-			error(0);
+			return (error("error"));
 		tetris[piece_index] = build_piece(piece_index, buff);
 		previous_ret = ret;
 		ret = read(fd, buff, 21);
 		piece_index++;
 	}
 	if (previous_ret != 20 || ret < 0)
-		error(0);
+		return (error("error"));
 	return (piece_index);
 }

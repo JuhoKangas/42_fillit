@@ -3,26 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:27:15 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/25 18:01:46 by amajer           ###   ########.fr       */
+/*   Updated: 2022/03/03 13:35:46 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-void error(int i)
+int	error(char *str)
 {
-	if (i == 1)
-		exit(1);
-	// {
-	// 	ft_putstr("usage:\n");
-	// }
-	else if (i == 0)
-	{
-		ft_putstr("error\n");
-		exit(1);
-	}
-
+	ft_putendl(str);
+	return (1);
 }
