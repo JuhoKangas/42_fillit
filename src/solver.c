@@ -6,7 +6,7 @@
 /*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:52:23 by jkangas           #+#    #+#             */
-/*   Updated: 2022/03/02 15:37:06 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/03 13:43:40 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,35 @@ int	get_mapsize(const int pieces)
 	int	size;
 
 	size = ft_sqrt(pieces * 4);
-	if(!size)
+	if (!size)
 	{
 		size = 3;
-
 		while (size * size < pieces * 4)
 			size++;
 	}
 	return (size);
-} 
+}
 
-int	fill_map(uint16_t *map, t_etrimino *tetris, const int size)
+int	fill_map(uint16_t *map, t_etrimino *tet, const int size)
 {
-	if (tetris->id == 0)
+	if (tet->id == 0)
 		return (1);
-	tetris->y = 0;
-	while (tetris->y <= size - tetris->height)
+	tet->y = 0;
+	while (tet->y <= size - tet->height)
 	{
-		tetris->x = 0;
-		while (tetris->x <= size - tetris->width)
+		tet->x = 0;
+		while (tet->x <= size - tet->width)
 		{
-			if (!(*(uint64_t *)(map + tetris->y) & (tetris->value >> tetris->x)))
+			if (!(*(uint64_t *)(map + tet->y) & (tet->value >> tet->x)))
 			{
-				*(uint64_t *)(map + tetris->y) ^= (tetris->value >> tetris->x);
-				if (fill_map(map, tetris + 1, size))
+				*(uint64_t *)(map + tet->y) ^= (tet->value >> tet->x);
+				if (fill_map(map, tet + 1, size))
 					return (1);
-				*(uint64_t *)(map + tetris->y) ^= (tetris->value >> tetris->x);
+				*(uint64_t *)(map + tet->y) ^= (tet->value >> tet->x);
 			}
-			tetris->x++;
+			tet->x++;
 		}
-		tetris->y++;
+		tet->y++;
 	}
 	return (0);
 }
