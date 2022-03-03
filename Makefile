@@ -6,7 +6,7 @@
 #    By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/03/02 15:35:21 by jkangas          ###   ########.fr        #
+#    Updated: 2022/03/03 13:59:48 by jkangas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJ_DIR := ./obj
 # src / obj files
 SRC := main.c error.c measure.c reader.c \
 		validator.c transform_to_bitwise.c \
-		solver.c
+		solver.c printer.c
 SRCS := $(addprefix $(SRC_DIR)/,$(SRC))
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
