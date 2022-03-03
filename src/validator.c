@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:48:32 by amajer            #+#    #+#             */
-/*   Updated: 2022/02/25 16:56:04 by amajer           ###   ########.fr       */
+/*   Updated: 2022/03/03 14:45:25 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int ft_validate_shape(char *piece_index)
 		}
 		i++;
 	}
-	// printf("this tetrimino has %i contact points.\n", contacts);
-	// return (contacts == 6 || contacts == 8);
 	return (contacts);
 }
 
@@ -51,7 +49,7 @@ int	ft_validate_file(char *buff, int piece_index)
 	i = 0;
 	blocks = 0;
 	if ((piece_index > 26) || (buff[20] != '\n' && buff[20] != '\0'))
-		error(0);
+		return (error("error"));
 	while(i < 20)
 	{
 		if ((i + 1) % 5 == 0 && buff[i] != '\n' && i > 1)
