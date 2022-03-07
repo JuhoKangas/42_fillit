@@ -6,17 +6,17 @@
 /*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:43:22 by amajer            #+#    #+#             */
-/*   Updated: 2022/03/03 13:49:46 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/07 17:25:47 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-t_etrimino build_piece(int piece_index, char *buff)
+t_etrimino	build_piece(int piece_index, char *buff)
 {
-	t_etrimino tetrimino;
-	int i;
-	char piece_id;
+	t_etrimino	tetrimino;
+	int			i;
+	char		piece_id;
 
 	i = -1;
 	piece_id = 'A' - 1;
@@ -36,10 +36,8 @@ int	ft_reader_function(int fd, t_etrimino *tetris)
 	int		piece_index;
 	int		ret;
 
-
 	piece_index = 0;
 	ret = read(fd, buff, 21);
-
 	while (ret > 0)
 	{
 		buff[ret] = '\0';
