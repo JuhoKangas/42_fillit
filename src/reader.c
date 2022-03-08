@@ -6,11 +6,17 @@
 /*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:43:22 by amajer            #+#    #+#             */
-/*   Updated: 2022/03/07 17:25:47 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/08 16:27:11 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
+
+/*
+ * Assigns values for the tetrimino struct. tetrimino.value is given as 
+ * unsigned long long to make bitwise operations possible. After
+ * assigning values the function returns that tetrimino.
+ */
 
 t_etrimino	build_piece(int piece_index, char *buff)
 {
@@ -28,6 +34,13 @@ t_etrimino	build_piece(int piece_index, char *buff)
 	tetrimino.id = piece_id;
 	return (tetrimino);
 }
+
+/*
+ * Reader will read the file piece by piece in to the buffer
+ * and validate its shape and correct input type for the whole
+ * file. The function will return the amount of pieces back
+ * to the main function.
+ */
 
 int	ft_reader_function(int fd, t_etrimino *tetris)
 {
