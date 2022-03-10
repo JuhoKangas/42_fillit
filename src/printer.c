@@ -6,11 +6,16 @@
 /*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 13:59:31 by jkangas           #+#    #+#             */
-/*   Updated: 2022/03/07 17:28:27 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/08 16:05:56 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
+
+/*
+ * Initialize empty map with given dimensions as size * size
+ * empty string
+ */
 
 char	*init_map(int size)
 {
@@ -33,6 +38,11 @@ char	*init_map(int size)
 	}
 	return (str);
 }
+
+/*
+ * print_map places the tetriminos in to the initialized map
+ * by the corresponding letter assigned in to the t_etrimino struct.
+ */
 
 void	print_map(t_etrimino *tet, int pieces, int size)
 {

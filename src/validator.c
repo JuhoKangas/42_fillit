@@ -6,11 +6,16 @@
 /*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:48:32 by amajer            #+#    #+#             */
-/*   Updated: 2022/03/07 17:28:52 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/08 16:38:27 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
+
+/*
+ * Validates the tetrimino shape. All the correct solutions have either
+ * 6 or 8 sides touching. Returns the number of the sides touching.
+ */
 
 int	ft_validate_shape(char *piece_index)
 {
@@ -40,6 +45,11 @@ int	ft_validate_shape(char *piece_index)
 	}
 	return (contacts);
 }
+
+/*
+ * Checks the correct input from the file. Returns 1 if error occurs in
+ * validation, otherwise return 0.
+ */
 
 int	ft_validate_file(char *buff, int piece_index)
 {

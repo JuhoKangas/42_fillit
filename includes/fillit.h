@@ -6,7 +6,7 @@
 /*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/03/03 14:12:46 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/08 16:40:11 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <fcntl.h>
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 
 # include "../libft/libft.h"
