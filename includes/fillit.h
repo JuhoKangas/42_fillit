@@ -6,7 +6,7 @@
 /*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:29:49 by amajer            #+#    #+#             */
-/*   Updated: 2022/03/08 16:40:11 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/10 16:29:10 by jkangas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ unsigned long long	left_shift(uint64_t tetrimino);
 
 unsigned long long	set_bit(unsigned long long tet, int index);
 
-void				bin(unsigned long long n);
 int					error(char *str);
 
 void				print_map(t_etrimino *tet, int pieces, int size);
