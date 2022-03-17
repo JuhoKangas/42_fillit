@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:48:32 by amajer            #+#    #+#             */
-/*   Updated: 2022/03/08 16:38:27 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/17 16:44:28 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	ft_validate_file(char *buff, int piece_index)
 {
 	int	i;
 	int	blocks;
+	int	contacts;
 
 	i = 0;
 	blocks = 0;
@@ -71,7 +72,8 @@ int	ft_validate_file(char *buff, int piece_index)
 			return (1);
 		i++;
 	}
-	if (ft_validate_shape(buff) != 6 && ft_validate_shape(buff) != 8)
+	contacts = ft_validate_shape(buff);
+	if (contacts != 6 && contacts != 8)
 		return (1);
 	return (0);
 }

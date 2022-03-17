@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 13:59:31 by jkangas           #+#    #+#             */
-/*   Updated: 2022/03/08 16:05:56 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/17 16:26:23 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*init_map(int size)
 	int		y;
 
 	str = ft_strnew((size + 1) * size);
+	if (str == NULL)
+		error("error");
 	y = 0;
 	while (y < size)
 	{

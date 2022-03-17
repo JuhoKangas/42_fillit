@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkangas <jkangas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amajer <amajer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:43:22 by amajer            #+#    #+#             */
-/*   Updated: 2022/03/08 16:27:11 by jkangas          ###   ########.fr       */
+/*   Updated: 2022/03/17 16:43:44 by amajer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_etrimino	build_piece(int piece_index, char *buff)
 int	ft_reader_function(int fd, t_etrimino *tetris)
 {
 	int		previous_ret;
-	char	buff[21];
+	char	buff[22];
 	int		piece_index;
 	int		ret;
 
@@ -61,7 +61,7 @@ int	ft_reader_function(int fd, t_etrimino *tetris)
 		ret = read(fd, buff, 21);
 		piece_index++;
 	}
-	if (previous_ret != 20 || ret < 0)
+	if ((previous_ret != 20 || ret < 0) || (piece_index > 26))
 		return (error("error"));
 	return (piece_index);
 }
