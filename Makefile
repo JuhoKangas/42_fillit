@@ -6,7 +6,7 @@
 #    By: amajer <amajer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 15:58:49 by amajer            #+#    #+#              #
-#    Updated: 2022/03/17 14:41:10 by amajer           ###   ########.fr        #
+#    Updated: 2022/03/22 14:36:51 by jkangas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,15 +39,14 @@ RMDIR := /bin/rm -rf
 
 .PHONY: all clean fclean re
 
-all:
-	mkdir -p $(OBJ_DIR)
-	$(MAKE) -C libft
-	$(MAKE) $(NAME)
+all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ)
+	$(MAKE) -C libft
 	$(CC) $(CFLAGS) $(OBJ) $(INCLUDES) $(LIBFT) -o $@
 
 clean:
